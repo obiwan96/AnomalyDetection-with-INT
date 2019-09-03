@@ -1,4 +1,4 @@
-# CS720MAnomalyDetectionINT
+# AnomalyDetection with INT
 
 ***
 * DataStreamProcessor.py
