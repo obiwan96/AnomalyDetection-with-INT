@@ -209,10 +209,8 @@ def read_data(file_name):
 def read_test_data(file_name):#change to read all data
     with open(file_name,'r') as f:
         flow_data=pkl.load(f)
-    normal_flow=[]
-    anormal_flow=[]
-    sum_=np.zeros(6)
-    num_=np.zeros(6)
+    for flow in flow_data:
+        flow=[np.array(flow[2:]), np.array([0,1])]
     for flow in flow_data:
         for i in range(2,8):
             if flow[0][i]==None:
