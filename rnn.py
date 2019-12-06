@@ -26,11 +26,11 @@ def main(args):
 
     if args.test:
         test_input, test_output = read_test_data(args.file_name)
-        X_test=train_input
-        ori_test_len=len(train_input)
+        X_test=test_input
+        ori_test_len=len(test_input)
         rest=len(X_test)%(n_windows)
         if rest:
-            X_test=np.append(train_input,np.zeros((n_windows-rest,n_inputs)))
+            X_test=np.append(test_input,np.zeros((n_windows-rest,n_inputs)))
         X_test=X_test.reshape(-1,n_windows,n_inputs)
         tf.reset_default_graph()
         X=tf.placeholder(tf.float32, [None, n_windows, n_inputs])
@@ -54,7 +54,7 @@ def main(args):
             y_pred=sess.run(outputs,feed_dict={X:X_test})
             y_pred=y_pred.reshape(-1,2)
             prediction=np.argmax(y_pred,axis=1)
-            correct = np.argmax(train_output,axis=1)
+            correct = np.argmax(test_output,axis=1)
             tp=fp=fn=tn=0
             for i in range(ori_test_len):
                 if prediction[i]:
