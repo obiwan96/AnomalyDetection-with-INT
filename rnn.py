@@ -211,6 +211,13 @@ def read_test_data(file_name):#change to read all data
         flow_data=pkl.load(f)
     for flow in flow_data:
         flow=[np.array(flow[2:]), np.array([0,1])]
+
+    for i in range(len(flow_data)):
+        flow=flow_data[i]
+        if flow[0]:
+            flow_data[i]=[np.array(flow[2:]), np.array([0,1])]
+        else:
+            flow_data[i]=[np.array(flow[2:]), np.array([1,0])]
     for flow in flow_data:
         for i in range(2,8):
             if flow[0][i]==None:
