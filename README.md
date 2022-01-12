@@ -1,5 +1,10 @@
 # AnomalyDetection with INT
 
+Please refer next link in ONOS Wiki about way to build virtual network testbed with INT.
+
+https://wiki.onosproject.org/display/ONOS/In-band+Network+Telemetry+%28INT%29+with+ONOS+and+P4
+
+
 ***
 * DataStreamProcessor.py
 
